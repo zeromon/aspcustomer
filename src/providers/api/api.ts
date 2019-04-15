@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class Api {
   // http://192.168.0.8/yii/ionicyii/web
   // http://java-rhino.com/apiiai/web/
-  url: string = 'http://192.168.1.7/ionicyii/web';
+  url: string = 'http://localhost/aspserver/';
 
   constructor(public http: HttpClient) {
   }

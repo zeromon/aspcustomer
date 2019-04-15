@@ -99,14 +99,17 @@
         <th>Jumlah</th>
         <th>Aksi</th>
       </tr>
-      <tr *ngFor="let brg of barang">
-        <td><input type="text"></td>
-        <td><input class="jumlah" type="number" value="1"></td>
-        <td>Hapus</td>
+      <tr *ngFor="let brg of barang; let i=index">
+        <td><input [(ngModel)]="brg.nama" type="text"></td>
+        <td><input [(ngModel)]="brg.jumlah" class="jumlah" type="number" value="1"></td>
+        <td (click)="hapusBarang(i)">Hapus</td>
       </tr>
     </table>
   </div>
   <div>
     <p (click)="tambahBarang()">Tambah Barang+</p>
+  </div>
+  <div text-center>
+    <button (click) = "submit()" ion-button>submit</button>
   </div>
 </ion-content>
