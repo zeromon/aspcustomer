@@ -1,5 +1,7 @@
 {
   "name": "aspcustomer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
