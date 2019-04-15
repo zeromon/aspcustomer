@@ -1,17 +1,62 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Contact
+    <ion-title text-center>
+      ASP Express
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding>
+
+  <div>
+    <h5 text-center>Daftar Akun</h5>
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Nama:</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>No Telp:</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Password:</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label text-wrap fixed>Ulangi Password:</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <p text-center>
+        <button ion-button>Daftar</button>
+    </p>
+  </div>
+  <div>
+      <h5 text-center>Masuk Akun</h5>
+      <ion-list>
+  
+        <ion-item>
+          <ion-label fixed>Nama:</ion-label>
+          <ion-input type="text" value=""></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Password:</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+  
+      </ion-list>
+      <p text-center>
+        Lupa password? Reset
+      </p>
+      <p text-center>
+          <button ion-button>Masuk</button>
+      </p>
+    </div>
 </ion-content>
