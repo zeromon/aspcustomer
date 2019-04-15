@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Global } from '../../app/global';
 
 import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
 
@@ -9,11 +10,12 @@ import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
 })
 export class HomePage {
 
+  title = Global.title;
   constructor(public navCtrl: NavController) {
 
   }
 
-  goToAmbilBarang() { 
+  goToAmbilBarang() {
     this.navCtrl.push(AmbilBarangPage);
   }
 

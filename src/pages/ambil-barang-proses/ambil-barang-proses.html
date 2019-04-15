@@ -1,0 +1,112 @@
+<!--
+  Generated template for the AmbilBarangProsesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title class="title-custom" text-center>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <p text-center>Pengirim</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          Nama:<br>
+          <input type="text" ion-input>
+        </ion-col>
+        <ion-col col-4>
+          No. Telepon:<br>
+          <input type="number" ion-input>
+        </ion-col>
+        <ion-col col-4>
+          Provinsi:<br>
+          <input type="text" size="10" value="Jawa Timur" disabled ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-item>
+          <ion-label color="primary" stacked>Kota:</ion-label>
+          <ion-select interface="popover">
+            <ion-option value="surabaya">Surabaya</ion-option>
+            <ion-option value="malang">Malang</ion-option>
+            <ion-option value="kediri">Kediri</ion-option>
+            <ion-option value="jombang">Jombang</ion-option>
+            <ion-option value="madiun">Madiun</ion-option>
+            <ion-option value="pacitan">Pacitan</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label color="primary" stacked>Alamat:</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <p text-center>Penerima</p>
+    <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            Nama:<br>
+            <input type="text" ion-input>
+          </ion-col>
+          <ion-col col-4>
+            No. Telepon:<br>
+            <input type="number" ion-input>
+          </ion-col>
+          <ion-col col-4>
+            Provinsi:<br>
+            <input type="text" size="10" value="Jawa Timur" disabled ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-item>
+            <ion-label color="primary" stacked>Kota:</ion-label>
+            <ion-select interface="popover">
+              <ion-option value="surabaya">Surabaya</ion-option>
+              <ion-option value="malang">Malang</ion-option>
+              <ion-option value="kediri">Kediri</ion-option>
+              <ion-option value="jombang">Jombang</ion-option>
+              <ion-option value="madiun">Madiun</ion-option>
+              <ion-option value="pacitan">Pacitan</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label color="primary" stacked>Alamat:</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-row>
+      </ion-grid>
+  </div>
+  <div>
+    <p text-center>Barang</p>
+    <table width="90%">
+      <tr>
+        <th text-center>Nama</th>
+        <th>Jumlah</th>
+        <th>Aksi</th>
+      </tr>
+      <tr *ngFor="let brg of barang">
+        <td><input type="text"></td>
+        <td><input class="jumlah" type="number" value="1"></td>
+        <td>Hapus</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <p (click)="tambahBarang()">Tambah Barang+</p>
+  </div>
+</ion-content>

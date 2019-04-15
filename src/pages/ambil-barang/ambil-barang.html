@@ -5,8 +5,8 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title class="title-custom" text-center>ASP Express</ion-title>
+  <ion-navbar hide-tabs>
+    <ion-title class="title-custom" text-center>{{title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -23,6 +23,6 @@
       </p>
   </div>
   <div text-center>
-    <button ion-button>mulai</button>
+    <button ion-button (click)="prosesAmbilBarang()">mulai</button>
   </div>
 </ion-content>
