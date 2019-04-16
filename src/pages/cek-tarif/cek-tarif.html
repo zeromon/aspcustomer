@@ -1,0 +1,87 @@
+<!--
+  Generated template for the CekTarifPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title class="title-custom" text-center>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+        <ion-label color="primary" stacked>Asal:</ion-label>
+        <ion-select interface="popover">
+          <ion-option value="surabaya">Surabaya</ion-option>
+          <ion-option value="malang">Malang</ion-option>
+          <ion-option value="kediri">Kediri</ion-option>
+          <ion-option value="jombang">Jombang</ion-option>
+          <ion-option value="madiun">Madiun</ion-option>
+          <ion-option value="pacitan">Pacitan</ion-option>
+        </ion-select>
+    </ion-row>
+    <ion-row>
+        <ion-label color="primary" stacked>Tujuan:</ion-label>
+        <ion-select interface="popover">
+          <ion-option value="surabaya">Surabaya</ion-option>
+          <ion-option value="malang">Malang</ion-option>
+          <ion-option value="kediri">Kediri</ion-option>
+          <ion-option value="jombang">Jombang</ion-option>
+          <ion-option value="madiun">Madiun</ion-option>
+          <ion-option value="pacitan">Pacitan</ion-option>
+        </ion-select>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        Berat:<br>
+        <input type="number" class="angka" ion-input value="1">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <p>Dimensi</p>
+    <ion-row>
+      <ion-col col-12>
+        <table>
+          <tr>
+            <th text-center>P(cm)</th>
+            <th text-center>L(cm)</th>
+            <th text-center>T(cm)</th>
+          </tr>
+          <tr>
+            <td text-center><input class="angka" type="number"></td>
+            <td text-center><input class="angka" type="number"></td>
+            <td text-center><input class="angka" type="number"></td>
+          </tr>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <p>Berat Dimensi: <span></span>KG</p>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <table>
+          <tr>
+            <th text-center>Layanan</th>
+            <th text-center>Total Berat</th>
+            <th text-center>Ongkos Kirim</th>
+          </tr>
+          <tr>
+            <td text-center><input type="text" size="10"></td>
+            <td text-center></td>
+            <td text-center></td>
+          </tr>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div text-center>
+    <button ion-button>cari</button>
+  </div>
+</ion-content>

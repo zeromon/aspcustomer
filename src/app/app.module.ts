@@ -13,6 +13,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AmbilBarangPage } from '../pages/ambil-barang/ambil-barang';
 import { AmbilBarangProsesPage } from '../pages/ambil-barang-proses/ambil-barang-proses';
+import { CekTarifPage } from '../pages/cek-tarif/cek-tarif';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +25,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     AmbilBarangPage,
     AmbilBarangProsesPage,
+    CekTarifPage,
     HomePage,
     TabsPage
   ],
@@ -41,6 +43,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     AmbilBarangPage,
     AmbilBarangProsesPage,
+    CekTarifPage,
     HomePage,
     TabsPage
   ],

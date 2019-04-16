@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Global } from '../../app/global';
 
 import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
+import { CekTarifPage } from '../cek-tarif/cek-tarif';
 
 @Component({
   selector: 'page-home',
@@ -17,6 +18,10 @@ export class HomePage {
 
   goToAmbilBarang() {
     this.navCtrl.push(AmbilBarangPage);
+  }
+
+  goToCekTarif() { 
+    this.navCtrl.push(CekTarifPage);
   }
 
 }
