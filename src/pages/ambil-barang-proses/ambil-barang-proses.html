@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div>
+  <!-- <div>
     <p text-center>Pengirim</p>
     <ion-grid>
       <ion-row>
@@ -50,7 +50,7 @@
         </ion-item>
       </ion-row>
     </ion-grid>
-  </div>
+  </div> -->
   <div>
     <p text-center>Penerima</p>
     <ion-grid>
@@ -91,21 +91,25 @@
         </ion-row>
       </ion-grid>
   </div>
-  <div>
+  <ion-grid>
     <p text-center>Barang</p>
-    <table width="90%">
-      <tr>
-        <th text-center>Nama</th>
-        <th>Jumlah</th>
-        <th>Aksi</th>
-      </tr>
-      <tr *ngFor="let brg of barang; let i=index">
-        <td><input [(ngModel)]="brg.nama" type="text"></td>
-        <td><input [(ngModel)]="brg.jumlah" class="jumlah" type="number" value="1"></td>
-        <td (click)="hapusBarang(i)">Hapus</td>
-      </tr>
-    </table>
-  </div>
+    <ion-row>
+      <ion-col col-12>
+        <table>
+          <tr>
+            <th text-center>Nama</th>
+            <th text-center>Jumlah</th>
+            <th text-center>Aksi</th>
+          </tr>
+          <tr *ngFor="let brg of barang; let i=index">
+            <td><input id="ed_nama" [(ngModel)]="brg.nama" type="text"></td>
+            <td><input [(ngModel)]="brg.jumlah" id="ed_jumlah" type="number" value="1"></td>
+            <td><button ion-button id="btn-hapus-barang" (click)="hapusBarang(i)">hapus</button></td>
+          </tr>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <div>
     <p (click)="tambahBarang()">Tambah Barang+</p>
   </div>

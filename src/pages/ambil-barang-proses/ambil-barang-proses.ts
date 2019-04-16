@@ -45,6 +45,12 @@ export class AmbilBarangProsesPage {
       //data: "",
     };
 
+    this.api.post("pengiriman", dataBarang).subscribe((res:any) => {
+      console.log(res);
+    }, (error:any) => {
+      console.log("error pada server");
+    });
+
     // this.api.post("test.php", dataBarang).subscribe((response:any) => {
     //   console.log(response);
     // }, (error:any) => {
