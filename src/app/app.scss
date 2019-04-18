@@ -29,3 +29,6 @@
 .scroll-content{
     overflow-y: auto !important;
 }
+
+// menghilangkan bug tombol back yang susah di tekan
+.back-button{z-index:5;}
