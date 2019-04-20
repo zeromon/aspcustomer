@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Global } from '../../app/global';
 
-import {Api} from '../../providers/api/api';
+import { Api } from '../../providers/api/api';
+import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
 
 /**
  * Generated class for the AmbilBarangProsesPage page.
@@ -21,7 +22,7 @@ export class AmbilBarangProsesPage {
   barang: any = [];
   constructor(
     public navCtrl: NavController,
-    private api: Api, 
+    private api: Api,
     public navParams: NavParams) {
   }
 
@@ -39,15 +40,16 @@ export class AmbilBarangProsesPage {
     this.barang.splice(index, 1);
   }
 
-  submit(){
+  submit() {
     let dataBarang = {
       data: this.barang
       //data: "",
     };
 
-    this.api.post("pengiriman", dataBarang).subscribe((res:any) => {
+    this.api.post("pengiriman", dataBarang).subscribe((res: any) => {
       console.log(res);
-    }, (error:any) => {
+      // this.navCtrl.push(AmbilBarangPage);
+    }, (error: any) => {
       console.log("error pada server");
     });
 

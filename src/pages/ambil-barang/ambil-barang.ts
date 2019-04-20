@@ -25,7 +25,7 @@ export class AmbilBarangPage {
   }
 
   prosesAmbilBarang() { 
-    this.navCtrl.push(AmbilBarangProsesPage);
+    // this.navCtrl.push(AmbilBarangProsesPage);
   }
 
 }

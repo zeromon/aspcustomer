@@ -5,6 +5,13 @@ import { MyApp } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
+// local storage ionic
+
+import { IonicStorageModule } from '@ionic/storage';
+
+import { AlertHelper } from '../helpers/alert-helper';
+import { LoadingHelper } from '../helpers/loading-helper';
+
 import { Api } from '../providers/api/api';
 
 import { AboutPage } from '../pages/about/about';
@@ -35,6 +42,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     IonicModule.forRoot(MyApp, {
       backButtonIcon: 'ios-arrow-back',
     }),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,6 +58,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     Api,
+    AlertHelper,
+    LoadingHelper,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

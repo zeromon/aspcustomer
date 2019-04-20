@@ -14,27 +14,27 @@
 
       <ion-item>
         <ion-label fixed>Nama:</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input [(ngModel)]="nama" type="text" value=""></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label fixed>No Telp:</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input [(ngModel)]="no_telp" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label fixed>Password:</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input [(ngModel)]="psw" type="password"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label text-wrap fixed>Ulangi Password:</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input [(ngModel)]="ulangpsw" type="password"></ion-input>
       </ion-item>
 
     </ion-list>
     <p text-center>
-        <button ion-button>Daftar</button>
+        <button (click)="daftar()" ion-button>Daftar</button>
     </p>
   </div>
   <div>
