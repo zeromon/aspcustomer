@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  // http://192.168.0.8/yii/ionicyii/web
-  // http://java-rhino.com/apiiai/web/
   url: string = 'http://localhost/aspserver/web/api';
 
   constructor(public http: HttpClient) {

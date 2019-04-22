@@ -28,6 +28,7 @@ export class HomePage {
     this.storage.get('user').then((data:any)=>{
       if(data){
         Global.is_login = true;
+        Global.user = data;
       }else{
       }
       // console.log(data);

@@ -3,7 +3,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Global } from '../../app/global';
 
 import { Api } from '../../providers/api/api';
-import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
+
+import { AlertHelper } from '../../helpers/alert-helper';
+import { LoadingHelper } from '../../helpers/loading-helper';
+//import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
 
 /**
  * Generated class for the AmbilBarangProsesPage page.
@@ -19,15 +22,28 @@ import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
 export class AmbilBarangProsesPage {
 
   title = Global.title;
+  user = Global.user;
   barang: any = [];
+  listKota: any = [];
+  id_kota: number;
+  nama_penerima: string;
+  no_telp: string;
+  alamat: string;
+
   constructor(
     public navCtrl: NavController,
     private api: Api,
-    public navParams: NavParams) {
+    private loadHelp: LoadingHelper,
+    private alertHelp: AlertHelper,
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad AmbilBarangProsesPage');
+    this.api.get("tarifkota").subscribe((res: any) => {
+      this.listKota = res;
+    });
   }
 
   tambahBarang() {
@@ -42,24 +58,42 @@ export class AmbilBarangProsesPage {
 
   submit() {
     let dataBarang = {
-      data: this.barang
+      data: this.barang,
+      id_customer: this.user.id,
+      nama_penerima: this.nama_penerima,
+      no_telp: this.no_telp,
+      alamat: this.alamat,
+      id_kota: this.id_kota
       //data: "",
     };
 
-    this.api.post("pengiriman", dataBarang).subscribe((res: any) => {
-      console.log(res);
-      // this.navCtrl.push(AmbilBarangPage);
-    }, (error: any) => {
-      console.log("error pada server");
-    });
+    // console.log(dataBarang);
+
+    if (this.barang.length == 0) {
+      this.alertHelp.showAlert("Minimal mengirim 1 barang", "Info");
+    } else {
+      this.loadHelp.showLoading("Tunggu...");
+      // this.alertHelp.showAlert("berhasil", "info");
+      this.api.post("pengiriman", dataBarang).subscribe((res: any) => {
+        this.loadHelp.dismissLoading();
+        if (res == "success") {
+          this.alertHelp.showAlert("Berhasil simpan data", "Info");
+        } else {
+          this.alertHelp.showAlert("gagal menyimpan data", "Info");
+        }
+        // console.log(res);
+        // this.navCtrl.push(AmbilBarangPage);
+      }, (error: any) => {
+        this.loadHelp.dismissLoading();
+        this.alertHelp.showAlert("Terjadi error pada server", "Error");
+        // console.log("error pada server");
+      });
+    }
 
     // this.api.post("test.php", dataBarang).subscribe((response:any) => {
     //   console.log(response);
     // }, (error:any) => {
     //   console.log(error);
-    // });
-    // this.api.get("registrant/listqa").subscribe((res:any) => {
-    //   console.log(res);
     // });
   }
 

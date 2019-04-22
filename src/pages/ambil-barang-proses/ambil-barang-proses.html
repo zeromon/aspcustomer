@@ -57,11 +57,11 @@
         <ion-row>
           <ion-col col-4>
             Nama:<br>
-            <input type="text" ion-input>
+            <input type="text" [(ngModel)]="nama_penerima" ion-input>
           </ion-col>
           <ion-col col-4>
             No. Telepon:<br>
-            <input type="number" ion-input>
+            <input type="number" [(ngModel)]="no_telp" ion-input>
           </ion-col>
           <ion-col col-4>
             Provinsi:<br>
@@ -73,20 +73,15 @@
         <ion-row>
           <ion-item>
             <ion-label color="primary" stacked>Kota:</ion-label>
-            <ion-select interface="popover">
-              <ion-option value="surabaya">Surabaya</ion-option>
-              <ion-option value="malang">Malang</ion-option>
-              <ion-option value="kediri">Kediri</ion-option>
-              <ion-option value="jombang">Jombang</ion-option>
-              <ion-option value="madiun">Madiun</ion-option>
-              <ion-option value="pacitan">Pacitan</ion-option>
+            <ion-select [(ngModel)]="id_kota" interface="popover">
+              <ion-option *ngFor="let kota of listKota" value="{{kota.id_kota}}">{{kota.kota}}</ion-option>
             </ion-select>
           </ion-item>
         </ion-row>
         <ion-row>
           <ion-item>
             <ion-label color="primary" stacked>Alamat:</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="alamat" type="text"></ion-input>
           </ion-item>
         </ion-row>
       </ion-grid>

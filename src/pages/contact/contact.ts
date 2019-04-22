@@ -13,13 +13,13 @@ import { Storage } from '@ionic/storage';
 })
 export class ContactPage {
   title = Global.title;
-  nama:string;
+  nama: string;
   no_telp;
   psw;
   ulangpsw;
   nama_login;
   psw_login;
-  user:any;
+  user: any;
   is_login = Global.is_login;
   constructor(
     public navCtrl: NavController,
@@ -33,18 +33,18 @@ export class ContactPage {
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad LoginPage');
-    this.storage.get('user').then((data:any)=>{
-      if(data){
+    this.storage.get('user').then((data: any) => {
+      if (data) {
         this.is_login = true;
         Global.is_login = this.is_login;
         this.user = data;
-      }else{
+      } else {
       }
       // console.log(data);
     });
   }
 
-  daftar() { 
+  daftar() {
     let data = {
       nama: this.nama,
       psw: this.psw,
@@ -52,46 +52,52 @@ export class ContactPage {
     }
 
     this.loadHelp.showLoading("Tunggu");
-    this.api.post("register",data).subscribe((res:any)=>{
+    this.api.post("register", data).subscribe((res: any) => {
       this.loadHelp.dismissLoading();
-      if(res=="success"){
+      if (res == "success") {
         this.alertHelp.showAlert("Berhasil daftar");
         this.reset();
-      }else{
+      } else {
         this.alertHelp.showAlert("gagal daftar");
       }
-    },(error:any)=>{
+    }, (error: any) => {
       this.loadHelp.dismissLoading();
       console.log(error);
     });
   }
 
-  login(){
+  login() {
     let data = {
       nama: this.nama_login,
       psw: this.psw_login
     };
     this.loadHelp.showLoading("Tunggu");
-    this.api.post("login",data).subscribe((res:any)=>{
+    this.api.post("login", data).subscribe((res: any) => {
+      if (res != 'failed') {
+        this.loadHelp.dismissLoading();
+        this.is_login = true;
+        Global.is_login = this.is_login;
+        this.user = res;
+        Global.user = this.user;
+        // set user in storage
+        this.storage.set('user', this.user);
+      }else{
+        this.loadHelp.dismissLoading();
+        this.alertHelp.showAlert("Gagal login username dan password tidak sesuai", 'Info');
+      }
+    }, (error: any) => {
       this.loadHelp.dismissLoading();
-      this.is_login = true;
-      Global.is_login = this.is_login;
-      this.user = data;
-      // set user in storage
-      this.storage.set('user', data);
-    },(error:any)=>{
-      this.loadHelp.dismissLoading();
-      this.alertHelp.showAlert("Terjadi error pada server","info");
+      this.alertHelp.showAlert("Terjadi error pada server", "info");
     });
   }
 
-  logout(){
+  logout() {
     this.storage.clear();
     this.is_login = false;
     Global.is_login = this.is_login;
   }
 
-  reset(){
+  reset() {
     this.nama = '';
     this.psw = '';
     this.no_telp = '';

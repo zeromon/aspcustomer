@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <div *ngIf="is_login==true">
-    nama: {{user.nama}}
+    nama: {{user?.nama}}
     <div text-center>
       <button (click)="logout()" ion-button>logout</button>
     </div>
@@ -34,10 +34,10 @@
           <ion-input [(ngModel)]="psw" type="password"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label text-wrap fixed>Ulangi Password:</ion-label>
           <ion-input [(ngModel)]="ulangpsw" type="password"></ion-input>
-        </ion-item>
+        </ion-item> -->
 
       </ion-list>
       <p text-center>
