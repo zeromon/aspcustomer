@@ -16,20 +16,15 @@
       <ion-item>
         <ion-label color="primary" stacked>Asal:</ion-label>
         <ion-select interface="popover">
-          <ion-option value="surabaya">Surabaya</ion-option>
+          <ion-option [selected]="true" value="surabaya">Surabaya</ion-option>
         </ion-select>
       </ion-item>
     </ion-row>
     <ion-row>
       <ion-item>
         <ion-label color="primary" stacked>Tujuan:</ion-label>
-        <ion-select interface="popover">
-          <ion-option value="surabaya">Surabaya</ion-option>
-          <ion-option value="malang">Malang</ion-option>
-          <ion-option value="kediri">Kediri</ion-option>
-          <ion-option value="jombang">Jombang</ion-option>
-          <ion-option value="madiun">Madiun</ion-option>
-          <ion-option value="pacitan">Pacitan</ion-option>
+        <ion-select interface="popover" [(ngModel)]="indexKota" (ionChange)="pilihKota()">
+          <ion-option *ngFor="let list of listKota; let i=index" value="{{i}}">{{list.kota}}</ion-option>
         </ion-select>
       </ion-item>
     </ion-row>
@@ -38,7 +33,7 @@
     <ion-row>
       <ion-col col-2>
         Berat:<br>
-        <input type="number" class="angka" ion-input value="1">
+        <input type="number" [(ngModel)]="berat" class="angka" ion-input>
       </ion-col>
       <ion-col col-2>
         <br>
@@ -57,16 +52,16 @@
             <th text-center>T(cm)</th>
           </tr>
           <tr>
-            <td text-center><input class="angka" type="number"></td>
-            <td text-center><input class="angka" type="number"></td>
-            <td text-center><input class="angka" type="number"></td>
+            <td text-center><input [(ngModel)]="p" class="angka" type="number"></td>
+            <td text-center><input [(ngModel)]="l" class="angka" type="number"></td>
+            <td text-center><input [(ngModel)]="t" class="angka" type="number"></td>
           </tr>
         </table>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid padding>
-      <p>Berat Dimensi: <span></span>KG</p>
+    <p>Berat Dimensi: <span>{{beratDimensi}}</span>KG</p>
     <ion-row>
       <ion-col col-12>
         <table>
@@ -77,18 +72,18 @@
           </tr>
           <tr>
             <td text-center>Reguler</td>
-            <td text-center></td>
-            <td text-center></td>
+            <td text-center>{{totalBerat}}</td>
+            <td text-center>{{ongkir}}</td>
           </tr>
         </table>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid padding>
-      <p>Estimasi waktu sampai: <span></span></p>
+    <p>Estimasi waktu sampai: <span>{{estimasi}}</span></p>
   </ion-grid>
   <div text-center>
-    <button ion-button>cari</button>
-    <button ion-button>reset</button>
+    <button (click)="hitungBeratDimensi()" ion-button>cari</button>
+    <button (click)="reset()" ion-button>reset</button>
   </div>
 </ion-content>
