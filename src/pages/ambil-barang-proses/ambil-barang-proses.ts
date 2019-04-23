@@ -6,7 +6,7 @@ import { Api } from '../../providers/api/api';
 
 import { AlertHelper } from '../../helpers/alert-helper';
 import { LoadingHelper } from '../../helpers/loading-helper';
-//import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
+import { AmbilBarangPage } from '../ambil-barang/ambil-barang';
 
 /**
  * Generated class for the AmbilBarangProsesPage page.
@@ -77,7 +77,8 @@ export class AmbilBarangProsesPage {
       this.api.post("pengiriman", dataBarang).subscribe((res: any) => {
         this.loadHelp.dismissLoading();
         if (res == "success") {
-          this.alertHelp.showAlert("Berhasil simpan data", "Info");
+          // this.alertHelp.showAlert("Berhasil simpan data", "Info");
+          this.navCtrl.push(AmbilBarangPage);
         } else {
           this.alertHelp.showAlert("gagal menyimpan data", "Info");
         }
