@@ -22,6 +22,7 @@ export class RiwayatPage {
   title = Global.title;
   user = Global.user;
   listRiwayat: any = [];
+  tanggal;
   constructor(
     public navCtrl: NavController,
     private api: Api,
@@ -32,6 +33,11 @@ export class RiwayatPage {
   }
 
   ionViewDidLoad() {
+    this.getData();
+    //console.log('ionViewDidLoad RiwayatPage');
+  }
+
+  getData(){
     this.loadHelp.showLoading("Loading...");
     this.api.get('riwayat',{id: this.user.id}).subscribe((res:any)=>{
       this.loadHelp.dismissLoading();
@@ -41,7 +47,23 @@ export class RiwayatPage {
       this.loadHelp.dismissLoading();
       this.alertHelp.showAlert("Terjadi Error pada server");
     });
-    //console.log('ionViewDidLoad RiwayatPage');
+  }
+
+  cari(){
+    this.loadHelp.showLoading("Loading...");
+    this.api.get('riwayat',{id: this.user.id, tanggal: this.tanggal}).subscribe((res:any)=>{
+      this.loadHelp.dismissLoading();
+      console.log(res);
+      this.listRiwayat = res;
+    },(error:any)=>{
+      this.loadHelp.dismissLoading();
+      this.alertHelp.showAlert("Terjadi Error pada server");
+    });
+  }
+
+  reset(){
+    this.tanggal = null;
+    this.getData();
   }
 
 }

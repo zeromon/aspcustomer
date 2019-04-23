@@ -13,6 +13,14 @@
 <ion-content>
   <ion-grid padding>
     <ion-row>
+        <ion-item>
+            <ion-label stacked>Tanggal</ion-label>
+            <ion-datetime [(ngModel)]="tanggal" displayFormat="MM/DD/YYYY"></ion-datetime>
+            <button ion-button item-end (click)="cari()">cari</button>
+            <button ion-button item-end (click)="reset()">reset</button>
+          </ion-item>
+    </ion-row>
+    <ion-row>
       <ion-col col-12>
         <table>
           <tr>
