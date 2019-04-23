@@ -21,6 +21,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AmbilBarangPage } from '../pages/ambil-barang/ambil-barang';
 import { AmbilBarangProsesPage } from '../pages/ambil-barang-proses/ambil-barang-proses';
 import { CekTarifPage } from '../pages/cek-tarif/cek-tarif';
+import { RiwayatPage } from '../pages/riwayat/riwayat';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AmbilBarangPage,
     AmbilBarangProsesPage,
     CekTarifPage,
+    RiwayatPage,
     HomePage,
     TabsPage
   ],
@@ -52,6 +54,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AmbilBarangPage,
     AmbilBarangProsesPage,
     CekTarifPage,
+    RiwayatPage,
     HomePage,
     TabsPage
   ],

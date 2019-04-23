@@ -4,6 +4,7 @@ import { Global } from '../../app/global';
 
 import { AmbilBarangProsesPage } from '../ambil-barang-proses/ambil-barang-proses';
 import { CekTarifPage } from '../cek-tarif/cek-tarif';
+import { RiwayatPage } from '../riwayat/riwayat';
 
 import { AlertHelper } from '../../helpers/alert-helper';
 import { Storage } from '@ionic/storage';
@@ -25,21 +26,28 @@ export class HomePage {
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad LoginPage');
-    this.storage.get('user').then((data:any)=>{
-      if(data){
+    this.storage.get('user').then((data: any) => {
+      if (data) {
         Global.is_login = true;
         Global.user = data;
-      }else{
+      } else {
       }
       // console.log(data);
     });
   }
 
   goToAmbilBarang() {
-    if(!Global.is_login)
-      this.alertHelp.showAlert("Jika ingin mengakses halaman ini anda harus login","info");
+    if (!Global.is_login)
+      this.alertHelp.showAlert("Jika ingin mengakses halaman ini anda harus login", "info");
     else
       this.navCtrl.push(AmbilBarangProsesPage);
+  }
+
+  goToRiwayat() {
+    if (!Global.is_login)
+      this.alertHelp.showAlert("Jika ingin mengakses halaman ini anda harus login", "info");
+    else
+      this.navCtrl.push(RiwayatPage);
   }
 
   goToCekTarif() {

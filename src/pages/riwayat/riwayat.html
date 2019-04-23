@@ -1,0 +1,36 @@
+<!--
+  Generated template for the RiwayatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title class="title-custom" text-center>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid padding>
+    <ion-row>
+      <ion-col col-12>
+        <table>
+          <tr>
+            <th text-center>No. resi</th>
+            <th text-center>Pengirim</th>
+            <th text-center>Penerima</th>
+            <th text-center>Barang</th>
+          </tr>
+          <tr *ngFor="let riwayat of listRiwayat">
+            <td text-center>{{riwayat.no_resi}}</td>
+            <td text-center>{{riwayat.nama_pengirim}}</td>
+            <td text-center>{{riwayat.nama_penerima}}</td>
+            <td text-center>
+              <span *ngFor="let barang of riwayat.list_barang">{{barang.nama_brg}}<br></span>
+            </td>
+          </tr>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
