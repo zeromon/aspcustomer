@@ -25,10 +25,14 @@ export class AmbilBarangProsesPage {
   user = Global.user;
   barang: any = [];
   listKota: any = [];
-  id_kota: number;
+  kota_penerima: number;
   nama_penerima: string;
-  no_telp: string;
-  alamat: string;
+  no_telp_penerima: string;
+  alamat_penerima: string;
+  kota_pengirim: number;
+  nama_pengirim: string;
+  no_telp_pengirim: string;
+  alamat_pengirim: string;
 
   constructor(
     public navCtrl: NavController,
@@ -61,9 +65,13 @@ export class AmbilBarangProsesPage {
       data: this.barang,
       id_customer: this.user.id,
       nama_penerima: this.nama_penerima,
-      no_telp: this.no_telp,
-      alamat: this.alamat,
-      id_kota: this.id_kota
+      no_telp_penerima: this.no_telp_penerima,
+      alamat_penerima: this.alamat_penerima,
+      kota_penerima: this.kota_penerima,
+      nama_pengirim: this.nama_pengirim,
+      no_telp_pengirim: this.no_telp_pengirim,
+      alamat_pengirim: this.alamat_pengirim,
+      kota_pengirim: this.kota_pengirim,
       //data: "",
     };
 
