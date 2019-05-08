@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Global } from '../../app/global';
 
+import { HomePage } from '../home/home';
+
 // import { AmbilBarangProsesPage } from '../ambil-barang-proses/ambil-barang-proses';
 
 /**
@@ -24,8 +26,12 @@ export class AmbilBarangPage {
     //console.log('ionViewDidLoad AmbilBarangPage');
   }
 
-  prosesAmbilBarang() { 
+  prosesAmbilBarang() {
     // this.navCtrl.push(AmbilBarangProsesPage);
+  }
+
+  goToHome() { 
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

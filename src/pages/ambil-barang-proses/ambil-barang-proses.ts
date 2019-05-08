@@ -63,7 +63,7 @@ export class AmbilBarangProsesPage {
   submit() {
     let dataBarang = {
       data: this.barang,
-      id_customer: this.user.id,
+      id_user: this.user.id,
       nama_penerima: this.nama_penerima,
       no_telp_penerima: this.no_telp_penerima,
       alamat_penerima: this.alamat_penerima,

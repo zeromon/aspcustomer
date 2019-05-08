@@ -66,4 +66,9 @@ export class RiwayatPage {
     this.getData();
   }
 
+  doRefresh(refresher: any) {
+    this.getData();
+    refresher.complete();
+  }
+
 }

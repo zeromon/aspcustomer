@@ -41,7 +41,10 @@ export class HomePage {
     this.storage.get('user').then((data: any) => {
       if (data) {
         Global.is_login = true;
+        this.is_login = true;
         Global.user = data;
+        this.user = data;
+        console.log(data)
       } else {
       }
       // console.log(data);

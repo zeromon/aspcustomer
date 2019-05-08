@@ -11,34 +11,46 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
   <ion-grid padding>
     <ion-row>
-        <ion-item>
-            <ion-label stacked>Tanggal</ion-label>
-            <ion-datetime [(ngModel)]="tanggal" displayFormat="MM/DD/YYYY"></ion-datetime>
-            <button ion-button item-end (click)="cari()">cari</button>
-            <button ion-button item-end (click)="reset()">reset</button>
-          </ion-item>
+      <ion-item>
+        <ion-label stacked>Tanggal</ion-label>
+        <ion-datetime [(ngModel)]="tanggal" displayFormat="MM/DD/YYYY"></ion-datetime>
+        <button ion-button item-end (click)="cari()">cari</button>
+        <button ion-button item-end (click)="reset()">reset</button>
+      </ion-item>
     </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        <table>
-          <tr>
-            <th text-center>No. resi</th>
-            <th text-center>Pengirim</th>
-            <th text-center>Penerima</th>
-            <th text-center>Barang</th>
-          </tr>
-          <tr *ngFor="let riwayat of listRiwayat">
-            <td text-center>{{riwayat.no_resi}}</td>
-            <td text-center>{{riwayat.nama_pengirim}}</td>
-            <td text-center>{{riwayat.nama_penerima}}</td>
-            <td text-center>
-              <span *ngFor="let barang of riwayat.list_barang">{{barang.nama_brg}}<br></span>
-            </td>
-          </tr>
-        </table>
-      </ion-col>
+    <ion-row style="border: 1px solid black">
+      <ion-col style="border: 1px solid black" col-3 text-center>No. resi</ion-col>
+      <ion-col style="border: 1px solid black" col-3 text-center>Pengirim</ion-col>
+      <ion-col style="border: 1px solid black" col-3 text-center>Penerima</ion-col>
+      <ion-col style="border: 1px solid black" col-3 text-center>Barang</ion-col>
     </ion-row>
+    <ion-row style="border: 1px solid black" *ngFor="let riwayat of listRiwayat">
+      <ion-col style="border: 1px solid black" col-3 text-center>{{riwayat.no_resi}}</ion-col>
+      <ion-col style="border: 1px solid black" col-3 text-center>{{riwayat.nama_pengirim}}</ion-col>
+      <ion-col style="border: 1px solid black" col-3 text-center>{{riwayat.nama_penerima}}</ion-col>
+      <ion-col style="border: 1px solid black" col-3><span
+          *ngFor="let barang of riwayat.list_barang">{{barang.nama_brg}}<br></span></ion-col>
+    </ion-row>
+    <!-- <table>
+      <tr>
+        <th text-center>No. resi</th>
+        <th text-center>Pengirim</th>
+        <th text-center>Penerima</th>
+        <th text-center>Barang</th>
+      </tr>
+      <tr *ngFor="let riwayat of listRiwayat" >
+        <td text-center><span text-wrap>{{riwayat.no_resi}}</span></td>
+        <td text-center>{{riwayat.nama_pengirim}}</td>
+        <td text-center>{{riwayat.nama_penerima}}</td>
+        <td text-center>
+          <span *ngFor="let barang of riwayat.list_barang">{{barang.nama_brg}}<br></span>
+        </td>
+      </tr>
+    </table> -->
   </ion-grid>
 </ion-content>

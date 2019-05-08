@@ -4,7 +4,8 @@ page-riwayat {
 	*/
 	table { 
 		width: 100%; 
-		border-collapse: collapse; 
+		border-collapse: collapse;
+		overflow: auto; 
 	}
 	/* Zebra striping */
 	tr:nth-of-type(odd) { 
@@ -15,9 +16,13 @@ page-riwayat {
 		color: white; 
 		font-weight: bold; 
 	}
-	td, th { 
+	td, th {
+		// display:inline-block; 
 		padding: 6px; 
 		border: 1px solid #ccc; 
 		text-align: left; 
-    }
+	}
+	// td{
+	// 	display:inline-block;
+	// }
 }
