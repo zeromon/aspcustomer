@@ -43,40 +43,28 @@
   </ion-grid>
   <ion-grid padding>
     <p>Dimensi</p>
-    <ion-row>
-      <ion-col col-12>
-        <table>
-          <tr>
-            <th text-center>P(cm)</th>
-            <th text-center>L(cm)</th>
-            <th text-center>T(cm)</th>
-          </tr>
-          <tr>
-            <td text-center><input [(ngModel)]="p" class="angka" type="number"></td>
-            <td text-center><input [(ngModel)]="l" class="angka" type="number"></td>
-            <td text-center><input [(ngModel)]="t" class="angka" type="number"></td>
-          </tr>
-        </table>
-      </ion-col>
+    <ion-row style="border: 1px solid black">
+      <ion-col text-center style="border: 1px solid black">P(cm)</ion-col>
+      <ion-col text-center style="border: 1px solid black">L(cm)</ion-col>
+      <ion-col text-center style="border: 1px solid black">T(cm)</ion-col>
+    </ion-row>
+    <ion-row style="border: 1px solid black">
+      <ion-col text-center style="border: 1px solid black"><input [(ngModel)]="p" class="angka" type="number"></ion-col>
+      <ion-col text-center style="border: 1px solid black"><input [(ngModel)]="l" class="angka" type="number"></ion-col>
+      <ion-col text-center style="border: 1px solid black"><input [(ngModel)]="t" class="angka" type="number"></ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid padding>
     <p>Berat Dimensi: <span>{{beratDimensi}}</span>KG</p>
-    <ion-row>
-      <ion-col col-12>
-        <table>
-          <tr>
-            <th text-center>Layanan</th>
-            <th text-center>Total Berat</th>
-            <th text-center>Ongkos Kirim</th>
-          </tr>
-          <tr>
-            <td text-center>Reguler</td>
-            <td text-center>{{totalBerat}}</td>
-            <td text-center>{{ongkir}}</td>
-          </tr>
-        </table>
-      </ion-col>
+    <ion-row style="border: 1px solid black">
+      <ion-col text-center style="border: 1px solid black">Layanan</ion-col>
+      <ion-col text-center style="border: 1px solid black">Total Berat</ion-col>
+      <ion-col text-center style="border: 1px solid black">Ongkos Kirim</ion-col>
+    </ion-row>
+    <ion-row style="border: 1px solid black">
+      <ion-col text-center style="border: 1px solid black">Reguler</ion-col>
+      <ion-col text-center style="border: 1px solid black">{{totalBerat}}</ion-col>
+      <ion-col text-center style="border: 1px solid black">{{ongkir}}</ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid padding>

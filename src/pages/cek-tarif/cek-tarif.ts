@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Global } from '../../app/global';
 
-import { Api } from '../../providers/api/api';
-import { AlertHelper } from '../../helpers/alert-helper';
+// import { Api } from '../../providers/api/api';
+// import { AlertHelper } from '../../helpers/alert-helper';
 
 /**
  * Generated class for the CekTarifPage page.
@@ -32,8 +32,8 @@ export class CekTarifPage {
   berat: number = 1;
   constructor(
     public navCtrl: NavController,
-    private api: Api,
-    private alertHelp: AlertHelper,
+    // private api: Api,
+    // private alertHelp: AlertHelper,
     public navParams: NavParams
   ) {
   }
