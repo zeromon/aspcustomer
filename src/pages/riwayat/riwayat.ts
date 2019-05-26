@@ -33,12 +33,12 @@ export class RiwayatPage {
   }
 
   ionViewDidLoad() {
+    this.loadHelp.showLoading("Loading...");
     this.getData();
     //console.log('ionViewDidLoad RiwayatPage');
   }
 
   getData(){
-    this.loadHelp.showLoading("Loading...");
     this.api.get('riwayat',{id: this.user.id}).subscribe((res:any)=>{
       this.loadHelp.dismissLoading();
       console.log(res);
