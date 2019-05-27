@@ -5,6 +5,8 @@ import { Global } from '../../app/global';
 import { AmbilBarangProsesPage } from '../ambil-barang-proses/ambil-barang-proses';
 import { CekTarifPage } from '../cek-tarif/cek-tarif';
 import { RiwayatPage } from '../riwayat/riwayat';
+import { LupaPswPage } from '../lupa-psw/lupa-psw';
+import { LacakKirimanPage } from '../lacak-kiriman/lacak-kiriman';
 
 import { Api } from '../../providers/api/api';
 import { AlertHelper } from '../../helpers/alert-helper';
@@ -26,6 +28,7 @@ export class HomePage {
   psw_login;
   user: any;
   is_login = Global.is_login;
+  is_error = true;
   constructor(
     public navCtrl: NavController,
     private api: Api,
@@ -65,6 +68,13 @@ export class HomePage {
       this.navCtrl.push(RiwayatPage);
   }
 
+  goToLacak() {
+    if (!Global.is_login)
+      this.alertHelp.showAlert("Jika ingin mengakses halaman ini anda harus login", "info");
+    else
+      this.navCtrl.push(LacakKirimanPage);
+  }
+
   goToCekTarif() {
     this.navCtrl.push(CekTarifPage);
   }
@@ -76,19 +86,42 @@ export class HomePage {
       no_telp: this.no_telp,
     }
 
-    this.loadHelp.showLoading("Tunggu");
-    this.api.post("register", data).subscribe((res: any) => {
-      this.loadHelp.dismissLoading();
-      if (res == "success") {
-        this.alertHelp.showAlert("Berhasil daftar");
-        this.reset();
-      } else {
-        this.alertHelp.showAlert("gagal daftar");
-      }
-    }, (error: any) => {
-      this.loadHelp.dismissLoading();
-      console.log(error);
-    });
+    this.cekErrorForm();
+    if (!this.is_error) {
+      this.loadHelp.showLoading("Tunggu");
+      this.api.post("register", data).subscribe((res: any) => {
+        this.loadHelp.dismissLoading();
+        if (res == "success") {
+          this.alertHelp.showAlert("Berhasil daftar");
+          this.reset();
+        } else {
+          // this.alertHelp.showAlert("gagal daftar");
+          this.alertHelp.showAlert("No telp ini " + this.no_telp + ' sudah dipakai oleh user lain');
+        }
+      }, (error: any) => {
+        this.loadHelp.dismissLoading();
+        console.log(error);
+      });
+    }
+  }
+
+  cekErrorForm() {
+    let error = '';
+    if (this.nama == null) {
+      error += 'nama<br>';
+    }
+    if (this.psw == null) {
+      error += 'password<br>';
+    }
+    if (this.no_telp == null) {
+      error += 'no telp<br>';
+    }
+    if (error != '') {
+      this.alertHelp.showAlert('Kolom berikut tidak boleh kosong:\n' + error, 'Error');
+      // this.loadHelp.dismissLoading();
+    } else {
+      this.is_error = false;
+    }
   }
 
   login() {
@@ -106,7 +139,7 @@ export class HomePage {
         Global.user = this.user;
         // set user in storage
         this.storage.set('user', this.user);
-      }else{
+      } else {
         this.loadHelp.dismissLoading();
         this.alertHelp.showAlert("Gagal login username dan password tidak sesuai", 'Info');
       }
@@ -127,6 +160,10 @@ export class HomePage {
     this.psw = '';
     this.no_telp = '';
     this.ulangpsw = '';
+  }
+
+  goToLupapsw() {
+    this.navCtrl.push(LupaPswPage);
   }
 
 }

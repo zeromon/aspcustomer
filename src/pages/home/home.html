@@ -18,7 +18,7 @@
       {{'cek tarif' | uppercase}}
       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
     </button>
-    <button ion-item>
+    <button ion-item (click)="goToLacak()">
       {{'lacak kiriman' | uppercase}}
       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
     </button>
@@ -78,7 +78,7 @@
 
       </ion-list>
       <p text-center>
-        Lupa password? Reset
+        Lupa password? <span style="color:#488aff" (click)="goToLupapsw()">Reset</span>
       </p>
       <p text-center>
         <button (click)="login()" ion-button>Masuk</button>
