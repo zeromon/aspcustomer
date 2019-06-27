@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Global } from '../../app/global';
 
-// import { Api } from '../../providers/api/api';
-// import { AlertHelper } from '../../helpers/alert-helper';
+import { Api } from '../../providers/api/api';
+import { AlertHelper } from '../../helpers/alert-helper';
 
 /**
  * Generated class for the CekTarifPage page.
@@ -30,23 +30,25 @@ export class CekTarifPage {
   totalBerat: number;
   ongkir: number;
   berat: number = 1;
+  jenis_pengiriman: string;
   constructor(
     public navCtrl: NavController,
-    // private api: Api,
-    // private alertHelp: AlertHelper,
+    private api: Api,
+    private alertHelp: AlertHelper,
     public navParams: NavParams
   ) {
   }
 
   ionViewDidLoad() {
+    this.jenis_pengiriman = 'reguler';
     // mendapatkan data list kota
     // console.log('ionViewDidLoad CekTarifPage');
-    // this.api.get("tarifkota").subscribe((res: any) => {
-    //   this.listKota = res;
-    //   //console.log(this.listKota);
-    // }, (error: any) => {
-    //   this.alertHelp.showAlert("Terjadi error pada server", "Error");
-    // });
+    this.api.get("tarifkota").subscribe((res: any) => {
+      this.listKota = res;
+      //console.log(this.listKota);
+    }, (error: any) => {
+      this.alertHelp.showAlert("Terjadi error pada server", "Error");
+    });
   }
 
   // menghitung berat dimensi
@@ -66,6 +68,18 @@ export class CekTarifPage {
     }
   }
 
+  ubahLayanan(){
+    if(this.indexKota != null){
+      if(this.jenis_pengiriman == 'express'){
+        this.hargaKota = this.listKota[this.indexKota].harga_ekspress;
+        this.estimasi = this.listKota[this.indexKota].estimasi_ekspress;
+      }else{
+        this.hargaKota = this.listKota[this.indexKota].harga;
+        this.estimasi = this.listKota[this.indexKota].estimasi;
+      }
+    }
+  }
+
   // fungsi reset
   reset() {
     this.indexKota = null;
@@ -77,6 +91,7 @@ export class CekTarifPage {
     this.p = null;
     this.l = null;
     this.t = null;
+    this.jenis_pengiriman = "reguler";
   }
 
 }

@@ -15,7 +15,7 @@
     <ion-row>
       <ion-item>
         <ion-label color="primary" stacked>Asal:</ion-label>
-        <ion-select interface="popover">
+        <ion-select interface="popover" disabled>
           <ion-option [selected]="true" value="surabaya">Surabaya</ion-option>
         </ion-select>
       </ion-item>
@@ -55,15 +55,26 @@
     </ion-row>
   </ion-grid>
   <ion-grid padding>
+    <ion-row>
+      <ion-item>
+        <ion-label color="primary" stacked>Jenis Pengiriman:</ion-label>
+          <ion-select [(ngModel)]="jenis_pengiriman" interface="popover" (ionChange)="ubahLayanan()">
+            <ion-option value="reguler">Reguler</ion-option>
+            <ion-option value="express">Express</ion-option>
+          </ion-select>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
+  <ion-grid padding>
     <p>Berat Dimensi: <span>{{beratDimensi}}</span>KG</p>
     <ion-row style="border: 1px solid black">
-      <ion-col text-center style="border: 1px solid black">Layanan</ion-col>
+      <!-- <ion-col text-center style="border: 1px solid black">Layanan</ion-col> -->
       <ion-col text-center style="border: 1px solid black">Total Berat</ion-col>
       <ion-col text-center style="border: 1px solid black">Ongkos Kirim</ion-col>
     </ion-row>
     <ion-row style="border: 1px solid black">
-      <ion-col text-center style="border: 1px solid black">Reguler</ion-col>
-      <ion-col text-center style="border: 1px solid black">{{totalBerat}}</ion-col>
+      <!-- <ion-col text-center style="border: 1px solid black">Reguler</ion-col> -->
+      <ion-col text-center style="border: 1px solid black; height: 35px">{{totalBerat}}</ion-col>
       <ion-col text-center style="border: 1px solid black">{{ongkir}}</ion-col>
     </ion-row>
   </ion-grid>
