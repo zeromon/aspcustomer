@@ -33,6 +33,7 @@ export class AmbilBarangProsesPage {
   nama_pengirim: string;
   no_telp_pengirim: string;
   alamat_pengirim: string;
+  jenis_pengiriman: string;
 
   constructor(
     public navCtrl: NavController,
@@ -48,6 +49,8 @@ export class AmbilBarangProsesPage {
     this.api.get("tarifkota").subscribe((res: any) => {
       this.listKota = res;
     });
+    this.kota_pengirim = 1;
+    this.jenis_pengiriman = "reguler";
   }
 
   tambahBarang() {
@@ -72,6 +75,7 @@ export class AmbilBarangProsesPage {
       no_telp_pengirim: this.no_telp_pengirim,
       alamat_pengirim: this.alamat_pengirim,
       kota_pengirim: this.kota_pengirim,
+      jenis_pengiriman: this.jenis_pengiriman,
       //data: "",
     };
 

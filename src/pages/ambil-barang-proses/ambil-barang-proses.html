@@ -21,7 +21,7 @@
         </ion-col>
         <ion-col col-4>
           No. Telepon:<br>
-          <input type="number" [(ngModel)]="no_telp_pengirim" ion-input>
+          <input type="text" [(ngModel)]="no_telp_pengirim" ion-input>
         </ion-col>
         <ion-col col-4>
           Provinsi:<br>
@@ -33,7 +33,7 @@
       <ion-row>
         <ion-item>
           <ion-label color="primary" stacked>Kota:</ion-label>
-            <ion-select [(ngModel)]="kota_pengirim" interface="popover">
+            <ion-select [(ngModel)]="kota_pengirim" interface="popover" disabled>
               <ion-option *ngFor="let kota of listKota" value="{{kota.id_kota}}">{{kota.kota}}</ion-option>
             </ion-select>
         </ion-item>
@@ -56,7 +56,7 @@
           </ion-col>
           <ion-col col-4>
             No. Telepon:<br>
-            <input type="number" [(ngModel)]="no_telp_penerima" ion-input>
+            <input type="text" [(ngModel)]="no_telp_penerima" ion-input>
           </ion-col>
           <ion-col col-4>
             Provinsi:<br>
@@ -81,6 +81,17 @@
         </ion-row>
       </ion-grid>
   </div>
+  <ion-grid>
+    <ion-row>
+      <ion-item>
+        <ion-label color="primary" stacked>Jenis Pengiriman:</ion-label>
+          <ion-select [(ngModel)]="jenis_pengiriman" interface="popover">
+            <ion-option value="reguler">Reguler</ion-option>
+            <ion-option value="express">Express</ion-option>
+          </ion-select>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
   <ion-grid>
     <p text-center>Barang</p>
     <!-- header -->
