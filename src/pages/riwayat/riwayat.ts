@@ -7,6 +7,8 @@ import { Api } from '../../providers/api/api';
 import { AlertHelper } from '../../helpers/alert-helper';
 import { LoadingHelper } from '../../helpers/loading-helper';
 
+import { DetailPengirimanPage } from '../detail-pengiriman/detail-pengiriman';
+
 /**
  * Generated class for the RiwayatPage page.
  *
@@ -38,30 +40,30 @@ export class RiwayatPage {
     //console.log('ionViewDidLoad RiwayatPage');
   }
 
-  getData(){
-    this.api.get('riwayat',{id: this.user.id}).subscribe((res:any)=>{
+  getData() {
+    this.api.get('riwayat', { id: this.user.id }).subscribe((res: any) => {
       this.loadHelp.dismissLoading();
       console.log(res);
       this.listRiwayat = res;
-    },(error:any)=>{
+    }, (error: any) => {
       this.loadHelp.dismissLoading();
       this.alertHelp.showAlert("Terjadi Error pada server");
     });
   }
 
-  cari(){
+  cari() {
     this.loadHelp.showLoading("Loading...");
-    this.api.get('riwayat',{id: this.user.id, tanggal: this.tanggal}).subscribe((res:any)=>{
+    this.api.get('riwayat', { id: this.user.id, tanggal: this.tanggal }).subscribe((res: any) => {
       this.loadHelp.dismissLoading();
       console.log(res);
       this.listRiwayat = res;
-    },(error:any)=>{
+    }, (error: any) => {
       this.loadHelp.dismissLoading();
       this.alertHelp.showAlert("Terjadi Error pada server");
     });
   }
 
-  reset(){
+  reset() {
     this.tanggal = null;
     this.getData();
   }
@@ -69,6 +71,10 @@ export class RiwayatPage {
   doRefresh(refresher: any) {
     this.getData();
     refresher.complete();
+  }
+
+  goToDetail(id_pengiriman:number){
+    this.navCtrl.push(DetailPengirimanPage,{id: id_pengiriman})
   }
 
 }

@@ -29,7 +29,7 @@
       <ion-col style="border: 1px solid black" col-3 text-center>Penerima</ion-col>
       <ion-col style="border: 1px solid black" col-3 text-center>Barang</ion-col>
     </ion-row>
-    <ion-row style="border: 1px solid black" *ngFor="let riwayat of listRiwayat">
+    <ion-row style="border: 1px solid black" *ngFor="let riwayat of listRiwayat" (click)="goToDetail(riwayat.id_pengiriman)">
       <ion-col style="border: 1px solid black" col-3 text-center>{{riwayat.no_resi}}</ion-col>
       <ion-col style="border: 1px solid black" col-3 text-center>{{riwayat.nama_pengirim}}</ion-col>
       <ion-col style="border: 1px solid black" col-3 text-center>{{riwayat.nama_penerima}}</ion-col>

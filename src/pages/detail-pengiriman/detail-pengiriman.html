@@ -1,0 +1,138 @@
+<!--
+  Generated template for the DetailPengirimanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title class="title-custom" text-center>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <p text-center>Pengirim</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          Nama:<br>
+          <input type="text" disabled [(ngModel)]="nama_pengirim" ion-input>
+        </ion-col>
+        <ion-col col-4>
+          No. Telepon:<br>
+          <input type="number" disabled [(ngModel)]="no_telp_pengirim" ion-input>
+        </ion-col>
+        <ion-col col-4>
+          Provinsi:<br>
+          <input type="text" size="10" value="Jawa Timur" disabled ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-item>
+          <ion-label color="primary" stacked>Kota:</ion-label>
+          <ion-select disabled [(ngModel)]="kota_pengirim" interface="popover">
+            <ion-option *ngFor="let kota of listKota" value="{{kota.id_kota}}">{{kota.kota}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label color="primary" stacked>Alamat:</ion-label>
+          <ion-input disabled type="text" [(ngModel)]="alamat_pengirim"></ion-input>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <p text-center>Penerima</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          Nama:<br>
+          <input type="text" disabled [(ngModel)]="nama_penerima" ion-input>
+        </ion-col>
+        <ion-col col-4>
+          No. Telepon:<br>
+          <input type="number" disabled [(ngModel)]="no_telp_penerima" ion-input>
+        </ion-col>
+        <ion-col col-4>
+          Provinsi:<br>
+          <input type="text" size="10" value="Jawa Timur" disabled ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-item>
+          <ion-label color="primary" stacked>Kota:</ion-label>
+          <ion-select disabled [(ngModel)]="kota_penerima" interface="popover">
+            <ion-option *ngFor="let kota of listKota" value="{{kota.id_kota}}">{{kota.kota}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label color="primary" stacked>Alamat:</ion-label>
+          <ion-input disabled [(ngModel)]="alamat_penerima" type="text"></ion-input>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-item>
+        <ion-label color="primary" stacked>Jenis Pengiriman:</ion-label>
+        <ion-select [(ngModel)]="jenis_pengiriman" interface="popover" disabled>
+          <ion-option value="reguler">Reguler</ion-option>
+          <ion-option value="express">Express</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <p text-center>Barang</p>
+    <!-- header -->
+    <ion-row style="border: 1px solid black">
+      <ion-col col-6 text-center style="border: 1px solid black">Nama</ion-col>
+      <ion-col col-6 text-center style="border: 1px solid black">Jumlah</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let brg of barang; let i=index" style="border: 1px solid black">
+      <ion-col col-6 style="border: 1px solid black" text-center>{{brg.nama_brg}}</ion-col>
+      <ion-col col-6 style="border: 1px solid black" text-center>{{brg.jumlah_brg}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row text-center>
+      <ion-col col-12>
+        Status kiriman
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let po of liststatus">
+      <ion-col col-6>{{po.tanggal}}</ion-col>
+      <ion-col col-6>{{po.status}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <p>
+      Total berat barang: {{berat}} Kg<br>
+      Biaya : Rp {{biaya}}<br>
+      Diterima oleh: {{penerima}}
+    </p>
+  </ion-grid>
+  <ion-grid>
+    <p text-center>Operasional</p>
+    <p>
+      Kurir yang menjemput:<br>
+      Nama : {{kurir_jemput}}<br>
+      Plat Nomer: {{kurir_jemput_platno}}
+    </p>
+    <p>
+      Kurir yang mengirim:<br>
+      Nama : {{kurir_kirim}}<br>
+      Plat Nomer: {{kurir_kirim_platno}}
+    </p>
+  </ion-grid>
+</ion-content>
