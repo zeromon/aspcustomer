@@ -29,6 +29,11 @@ export class HomePage {
   user: any;
   is_login = Global.is_login;
   is_error = true;
+  reqOpts = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  };
   constructor(
     public navCtrl: NavController,
     private api: Api,
@@ -89,7 +94,7 @@ export class HomePage {
     this.cekErrorForm();
     if (!this.is_error) {
       this.loadHelp.showLoading("Tunggu");
-      this.api.post("register", data).subscribe((res: any) => {
+      this.api.post("register", data, Global.reqOpts).subscribe((res: any) => {
         this.loadHelp.dismissLoading();
         if (res == "success") {
           this.alertHelp.showAlert("Berhasil daftar");
@@ -129,8 +134,9 @@ export class HomePage {
       nama: this.nama_login,
       psw: this.psw_login
     };
+
     this.loadHelp.showLoading("Tunggu");
-    this.api.post("login", data).subscribe((res: any) => {
+    this.api.post("login", data, Global.reqOpts).subscribe((res: any) => {
       if (res != 'failed') {
         this.loadHelp.dismissLoading();
         this.is_login = true;

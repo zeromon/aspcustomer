@@ -41,7 +41,7 @@ export class LupaPswPage {
     };
 
     this.loadHelp.showLoading('Proses');
-    this.api.post('resetpsw',data).subscribe((res:any)=>{
+    this.api.post('resetpsw',data, Global.reqOpts).subscribe((res:any)=>{
       this.loadHelp.dismissLoading();
       this.alertHelp.showAlert('Berhasil ubah password', 'Info');
     },(error:any)=>{

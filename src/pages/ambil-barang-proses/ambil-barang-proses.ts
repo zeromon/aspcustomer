@@ -86,7 +86,7 @@ export class AmbilBarangProsesPage {
     } else {
       this.loadHelp.showLoading("Tunggu...");
       // this.alertHelp.showAlert("berhasil", "info");
-      this.api.post("pengiriman", dataBarang).subscribe((res: any) => {
+      this.api.post("pengiriman", dataBarang, Global.reqOpts).subscribe((res: any) => {
         this.loadHelp.dismissLoading();
         if (res == "success") {
           // this.alertHelp.showAlert("Berhasil simpan data", "Info");
